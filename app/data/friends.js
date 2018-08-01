@@ -1,4 +1,4 @@
-const friendsArray = [
+module.exports = [
     {
         "name": "Malcolm",
         "photo": "https://vignette.wikia.nocookie.net/firefly/images/3/39/Mal.jpg/revision/latest?cb=20080301061839",
@@ -60,3 +60,4 @@ const friendsArray = [
         "scores": [5, 1, 1, 3, 5, 5, 1, 1, 3, 1]   
     }
 ];
+
