@@ -11,7 +11,9 @@
     <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
-    <script src="jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+ 
+
 
     
 </head>
@@ -20,7 +22,7 @@
 
     <div class="card">
         <div  id="topHeader">
-            <img id="serenity" src="../images/serenity-logo.jpg">
+            <img id="serenity" src="./images/serenity-logo.jpg">
             <p id="headerText">Just a little info about you, the Alliance will never know.</p>
         </div>
         <div class="card-body">
@@ -34,7 +36,6 @@
                   <input type="text" class="form-control" id="photo" placeholder="http:// etc.">
                 </div>
               </form>
-          <a href="#" class="btn btn-primary">I can kill you with my brain.</a>
         </div>
     </div>
 
@@ -333,22 +334,73 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
     
     <script type="text/javascript">
+
+
+        var createNewUser = function() {
+            $("#submit").on("click", function(e) {
+                e.preventDefault();
+                
+                console.log("SUBMIT CLICKED!");
+                
+                var userName = $('#name').val().trim();
+                var userImage = $('#photo').val().trim();
+                var userScores = [];
+                  
+                $.each($("input[name='q1']:checked"), function(){
+                    var answerValue = $(this).val();
+                    userScores.push(answerValue);
+                });
+                $.each($("input[name='q2']:checked"), function(){
+                    var answerValue = $(this).val();
+                    userScores.push(answerValue);
+                });
+                $.each($("input[name='q3']:checked"), function(){
+                    var answerValue = $(this).val();
+                    userScores.push(answerValue);
+                });
+                $.each($("input[name='q4']:checked"), function(){
+                    var answerValue = $(this).val();
+                    userScores.push(answerValue);
+                });
+                $.each($("input[name='q5']:checked"), function(){
+                    var answerValue = $(this).val();
+                    userScores.push(answerValue);
+                });
+                $.each($("input[name='q6']:checked"), function(){
+                    var answerValue = $(this).val();
+                    userScores.push(answerValue);
+                });
+                $.each($("input[name='q7']:checked"), function(){
+                    var answerValue = $(this).val();
+                    userScores.push(answerValue);
+                });
+                $.each($("input[name='q8']:checked"), function(){
+                    var answerValue = $(this).val();
+                    userScores.push(answerValue);
+                });
+                $.each($("input[name='q9']:checked"), function(){
+                    var answerValue = $(this).val();
+                    userScores.push(answerValue);
+                });
+                $.each($("input[name='q10']:checked"), function(){
+                    var answerValue = $(this).val();
+                    userScores.push(answerValue);
+                });
+                
+                var newUser = {
+                    "name": userName,
+                    "photo": userImage,
+                    "scores": userScores
+                };
+
+            });
+        };
         
-        $("#submit").on("click", function(e){
-            e.preventDefault();
-        console.log("SUBMIT CLICKED!")
-        var newUser={
-                 
+        createNewUser();
+        
+        
 
-            }
-
-            $.post("/api/new", newUser, function(err, data){})
-
-            })
-    
-
-      
     </script>
-
+    
 </body>
 </html>
