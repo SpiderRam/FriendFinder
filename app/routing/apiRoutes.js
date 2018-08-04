@@ -11,21 +11,21 @@ module.exports = function(app) {
 
         var compatibilityScore = 0;
         var differences = [];
-        var currentUser = req.body;
+        var newUser = req.body;
 
         for(var i = 0; i < friends.length; i++) {
             
             
-            for (var j = 0; j < currentUser.userScores.length; j++) {
+            for (var j = 0; j < newUser.userScores.length; j++) {
                 var friendScore = friends.scores[i];
-                var userScore = currentUser.userScores[j];
+                var userScore = newUser.userScores[j];
                 var difference = friendScore - userScore;
                 var scoreDifference = Math.abs(difference);
             };
 
             differences.push(scoreDifference);
         };
-
+        
  });
-
+ 
 };
