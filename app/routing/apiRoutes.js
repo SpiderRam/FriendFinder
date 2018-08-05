@@ -1,4 +1,5 @@
-var friends = require("../data/friends")
+const friends = require("../data/friends");
+const newUser = require("../public/survey.html");
 
 module.exports = function(app) {
 
@@ -11,14 +12,14 @@ module.exports = function(app) {
 
         var compatibilityScore = 0;
         var differences = [];
-        var newUser = req.body;
+        //var newUser = req.body;
 
         for(var i = 0; i < friends.length; i++) {
             
             
             for (var j = 0; j < newUser.userScores.length; j++) {
                 var friendScore = friends.scores[i];
-                var userScore = newUser.userScores[j];
+                var userScore = newUser.scores[j];
                 var difference = friendScore - userScore;
                 var scoreDifference = Math.abs(difference);
             };

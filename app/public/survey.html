@@ -335,9 +335,8 @@
     
     <script type="text/javascript">
 
-        $(document).load(createNewUser());
-
-        var createNewUser = function() {
+        var newUser;
+        
             $("#submit").on("click", function(e) {
                 e.preventDefault();
                 
@@ -388,15 +387,15 @@
                     userScores.push(answerValue);
                 });
                 
-                var newUser = {
+                newUser = {
                     "name": userName,
                     "photo": userImage,
                     "scores": userScores
                 };
 
             });
-        };
         
+        module.exports = newUser;
         
 
     </script>
