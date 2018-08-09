@@ -1,18 +1,19 @@
 const friends = require("../data/friends");
-const newUser = require("../public/survey.html");
 
 module.exports = function(app) {
 
+    var scoreDifference;
+
     app.get('/api/friends',function(req,res){
-        res.json(friends)
+        res.json(friends);
     });
   
 
     app.post('/api/new',function(req,res){
-
+        console.log('Hello: ' + JSON.stringify(req.body));
         var compatibilityScore = 0;
         var differences = [];
-        //var newUser = req.body;
+        var newUser = req.body;
 
         for(var i = 0; i < friends.length; i++) {
             
@@ -21,12 +22,12 @@ module.exports = function(app) {
                 var friendScore = friends.scores[i];
                 var userScore = newUser.scores[j];
                 var difference = friendScore - userScore;
-                var scoreDifference = Math.abs(difference);
-            };
+                scoreDifference = Math.abs(difference);
+            }
 
             differences.push(scoreDifference);
-        };
+        }
         
- });
+    });
  
 };

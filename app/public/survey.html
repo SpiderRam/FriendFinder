@@ -392,10 +392,15 @@
                     "photo": userImage,
                     "scores": userScores
                 };
+                var txt = $("input").val();
+                $.post('/api/new', newUser, function(result) {
+                    console.log(result);
+                    
+                });
 
             });
         
-        module.exports = newUser;
+        
         
 
     </script>
