@@ -8,37 +8,41 @@ module.exports = function(app) {
   
 
     app.post('/api/new',function(req,res){
-        console.log('Hello: ' + JSON.stringify(req.body));
-        var compatibilityScore = 0;
+    
         var scoreDifference;
-        var friendScoreArray;
-        var userScoreArray;
-        var difference;
-        var differences = [];
+        var friendScore;
+        var userScore;
         var newUser = req.body;
 
+        var bestMatch = {
+            name:"",
+            photo: "",
+            friendDiff: Infinity
+        };
+
         for(var i = 0; i < friends.length; i++) {
+            var currentFriend = friends[i];
+            scoreDifference =0;
         
-            for (var j = 0; j < friends[i].scores.length; j++) {
-                friendScoreArray = friends[i].scores[j];
+            
+            for (var j = 0; j < newUser.scores.length; j++) {
+            friendScore = currentFriend.scores[j];
+             
+            userScore = newUser.scores[j];
+            scoreDifference  += Math.abs(parseInt(userScore) - parseInt(friendScore));
+            
+            } 
+
+            if (scoreDifference <= bestMatch.friendDiff){
+                bestMatch.name =currentFriend.name;
+                bestMatch.photo = currentFriend.photo;
+                bestMatch.friendDiff = scoreDifference ;
             }
+
             
-        }
-
-        for (var k = 0; k < newUser.userScores.length; k++) {
-                
-            userScoreArray = newUser.scores[k];
-            
-        }
-
-        difference = friendScoreArray - userScoreArray;
-        scoreDifference = Math.abs(difference);
-        differences.push(scoreDifference);
-
-        compatibilityScore = differences.reduce(function(total, amount) {
-            return total + amount;
-          });
+        } 
         
+        res.json(bestMatch);
     });
  
 };
