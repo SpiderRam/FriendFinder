@@ -21,9 +21,9 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "jquery": "^3.4.1",
-    "jshint": "^2.9.6",
-    "nodemon": "^1.18.3",
+    "jquery": "^3.5.1",
+    "jshint": "^2.11.1",
+    "nodemon": "^1.19.4",
     "path": "^0.12.7"
   }
 }
