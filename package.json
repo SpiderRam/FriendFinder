@@ -20,7 +20,7 @@
   "homepage": "https://github.com/SpiderRam/FriendFinder#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "jquery": "^3.5.1",
     "jshint": "^2.11.1",
     "path": "^0.12.7"
